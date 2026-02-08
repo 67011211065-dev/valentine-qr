@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine คนโสด 😆</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 420px;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+        .heart {
+            font-size: 50px;
+            animation: beat 1s infinite;
+        }
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #e63950;
+        }
+        .quote {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="heart">💖</div>
+    <h1>Happy Valentine’s Day</h1>
+
+    <p>
+        ไม่มีแฟนไม่เป็นไร<br>
+        แต่อย่าไม่มีเงินก็พอ 💸😆
+    </p>
+
+    <button onclick="randomQuote()">สุ่มคำปลอบใจคนโสด 🎲</button>
+
+    <div class="quote" id="quote">
+        กดปุ่มสิ… อย่างน้อยชีวิตจะได้ตื่นเต้นบ้าง 😅
+    </div>
+
+    <!-- เพลงอกหักเบา ๆ -->
+    <audio id="sadSong" loop>
+        <source src="sad_song.mp3" type="audio/mpeg">
+    </audio>
+
+    <br>
+    <button onclick="playMusic()">เปิดเพลงอกหักเบา ๆ 🎵</button>
+</div>
+
+<script>
+    const quotes = [
+        "โสดวันนี้ เพื่อความรวยในวันหน้า 💰",
+        "ไม่มีแฟน = ไม่มีคนมายุ่งกับเงินเรา 😌",
+        "ความรักไม่สำคัญ… ค่าไฟสำคัญกว่า 🔌",
+        "โสดไม่ตาย แต่ไม่มีเงินนี่ตายจริง 😭",
+        "แฟนไม่มีไม่เป็นไร แต่ชาบูต้องมี 🥩",
+        "ความรักก็เหมือน WiFi… ไม่มีสัญญาณ 😂"
+    ];
+
+    function randomQuote() {
+        const random = Math.floor(Math.random() * quotes.length);
+        document.getElementById("quote").innerText = quotes[random];
+    }
+
+    function playMusic() {
+        const song = document.getElementById("sadSong");
+        song.volume = 0.2; // เบา ๆ ไม่บาดใจ
+        song.play();
+    }
+</script>
+
+</body>
+</html>
